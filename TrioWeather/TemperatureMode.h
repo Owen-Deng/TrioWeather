@@ -1,5 +1,5 @@
 //
-//  Weather.h
+//  TemperatureMode.h
 //  TrioWeather
 //
 //  Created by Owen on 9/10/23.

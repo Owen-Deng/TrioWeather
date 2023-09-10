@@ -150,7 +150,9 @@
                             <outlet property="delegate" destination="zqa-XF-rzj" id="oeR-Dn-MOG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pdM-D7-bhY"/>
+                    <navigationItem key="navigationItem" id="pdM-D7-bhY">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UF6-mw-aRo"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="df8-sw-PRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
