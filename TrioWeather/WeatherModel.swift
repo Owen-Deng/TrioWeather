@@ -19,7 +19,7 @@ struct Weather {
     
 }
 
-enum DisplayMode{case Fahrenheit, Celsius}
+//enum DisplayMode{case Fahrenheit, Celsius}
 
 class WeatherModel: NSObject {
     static var SharedInstance = WeatherModel()

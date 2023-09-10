@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     lazy var weatherModel = WeatherModel.SharedInstance
-    lazy var displayMode = DisplayMode.Fahrenheit
+    lazy var displayMode = TemperatureMode.Fahrenheit
     lazy var lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class TableViewController: UITableViewController {
             let weather = weatherModel.getWeathersByIndex(index: indexPath.row)
             
             cell.textLabel?.text = weather.city
-            if displayMode == DisplayMode.Celsius{
+            if displayMode == TemperatureMode.Celsius{
                 cell.detailTextLabel?.text = "\(weather.weather!) \(weatherModel.F2C(f: weather.temp_low))/\(weatherModel.F2C(f: weather.temp_high))°C"
             }else
             {
@@ -76,10 +76,11 @@ class TableViewController: UITableViewController {
         if let segCtrl = sender as? UISegmentedControl{
             let val = segCtrl.selectedSegmentIndex
             if val == 0{
-                self.displayMode = DisplayMode.Fahrenheit
+                self.displayMode = TemperatureMode.Fahrenheit
+                
             }else
             {
-                self.displayMode = DisplayMode.Celsius
+                self.displayMode = TemperatureMode.Celsius
             }
             self.tableView.reloadSections([1], with: .automatic)
         }
