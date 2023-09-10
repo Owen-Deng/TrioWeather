@@ -24,7 +24,7 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
     @objc func updateWeather(){
         lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
-        self.tableView.reloadSections([3], with: .automatic)
+        self.tableView.reloadSections([4], with: .automatic)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
