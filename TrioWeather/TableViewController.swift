@@ -7,7 +7,9 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, ModalViewControllerDelegate{
+
+    
     lazy var weatherModel = WeatherModel.SharedInstance
     lazy var displayMode = TemperatureMode.Fahrenheit
     lazy var lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
@@ -85,6 +87,11 @@ class TableViewController: UITableViewController {
             self.tableView.reloadSections([1], with: .automatic)
         }
     }
+    
+    func addCity(city: String) -> Bool {
+        _ = weatherModel.getWeatherByCity(city: city)
+        return true
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -127,23 +134,18 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        //tableView.index
-        //print(segue.destination)
-        
         if let vc = segue.destination as? CollectionViewController{
             vc.displayMode = self.displayMode
-        }else if let vc = segue.destination as? WeatherDetailsViewController,
-            let cell = sender as? UITableViewCell,
-            let city = cell.textLabel?.text!
+        }else if let vc = segue.destination as? ModalViewController
         {
-            vc.weather = weatherModel.getWeatherByCity(city:city)
+            vc.delegate = self
         }
-//        if let vc = segue.destination as? ViewController,
-//           let cell = sender as? UITableViewCell
-//           print("")
-////           let name = cell.textLabel?.text{
-////                vc.displayImageName = name
-////            }
+//        else if let vc = segue.destination as? WeatherDetailsViewController,
+//            let cell = sender as? UITableViewCell,
+//            let city = cell.textLabel?.text!
+//        {
+//            vc.weather = weatherModel.getWeatherByCity(city:city)
+//        }
     }
 
 
