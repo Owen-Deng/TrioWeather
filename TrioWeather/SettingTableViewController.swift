@@ -9,35 +9,64 @@
 //this is for the page of setting.
 import UIKit
 
-class SettingTableViewController: UITableViewController {
+class SettingTableViewController: UITableViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+    
+    //several funcs about the picker
+    //return the count of the pickeroptions
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return genderOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var selection=genderOptions[row]
+        print(selection)
+        genderText.text=genderOptions[row]
+        //save the gender here
+    }
+    
+    let pickView = UIPickerView()
+    //operate the pickerview
+    func creatPickerView(){
+        pickView.delegate=self
+        genderText.inputView=pickView
+        dismissPickerView()
+    }
+    func dismissPickerView() {
+       let toolBar = UIToolbar()
+       toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+       toolBar.setItems([button], animated: true)
+       toolBar.isUserInteractionEnabled = true
+       genderText.inputAccessoryView = toolBar
+    }
+    @objc func action() {
+          view.endEditing(true)
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return genderOptions[row]
+    }
 
-    let states = [
-        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
-        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
-        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-        "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-        "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
-        "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-        "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
-        "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-        "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
-        "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-    ]
+    // for the genderoptions
+    let genderOptions=["Male","Female","NotShow"]
 
     
+    // ui in the viewcontroller
     @IBOutlet weak var avatarImageView: UIImageView!
-    
-    
-    //the lables will update the size
     @IBOutlet weak var userNameLable: UILabel!
-    
     @IBOutlet weak var textsizeLable: UILabel!
-    
     @IBOutlet weak var darkmodelLabel: UILabel!
+    @IBOutlet weak var genderlabel: UILabel!
+    @IBOutlet weak var genderText: UITextField!
+    @IBAction func genderTextfield(_ sender: Any) {
+        
+    }
     
-    @IBOutlet weak var stateLabel: UILabel!
-    
-    @IBOutlet weak var stateContentLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,18 +79,27 @@ class SettingTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         setAvatarView(imageView: avatarImageView)
+        creatPickerView() // init the pickerview
+        
+        //monitor the tap in this viewcontroller
+        let tapGasture=UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.addGestureRecognizer(tapGasture)
+    }
+    
+    @objc func handleTap(){
+        if(genderText.isEditing){
+            action()
+            print("click something, when edit the gender")
+        }
+        
     }
     
     func setView(){
         
     }
     
-   
     @IBOutlet weak var stepper: UIStepper!
-    
     @IBOutlet weak var darkSwitch: UISwitch!
-    
-    
     
     // change the fontszie
     @IBAction func stepFontsize(_ sender: Any) {
@@ -83,16 +121,12 @@ class SettingTableViewController: UITableViewController {
         //save the model here
     }
     
-    
-    
-    
-    
     func setFontsize(size:Int){
         userNameLable.font=UIFont.systemFont(ofSize: CGFloat(size))
         textsizeLable.font=UIFont.systemFont(ofSize: CGFloat(size))
         darkmodelLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
-        stateLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
-        stateContentLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
+        genderlabel.font=UIFont.systemFont(ofSize: CGFloat(size))
+        genderText.font=UIFont.systemFont(ofSize: CGFloat(size))
         //save the size here
         
     }
@@ -119,9 +153,13 @@ class SettingTableViewController: UITableViewController {
         return 4
     }
     
+    // click the table row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         //
+        if(indexPath.row==3){
+            
+        }
     }
 
     /*

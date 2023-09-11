@@ -131,20 +131,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-Xh-e6s">
-                                                    <rect key="frame" x="20" y="11" width="40" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-Xh-e6s">
+                                                    <rect key="frame" x="20" y="19" width="57" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Texas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciA-qX-5hx">
-                                                    <rect key="frame" x="311" y="19" width="44" height="21"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Unknow" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aty-DG-frA">
+                                                    <rect key="frame" x="276" y="11" width="97" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Unknow" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Uh-wu-2Uw">
+                                                    <rect key="frame" x="276" y="11" width="97" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="genderTextfield:" destination="wWa-NN-Jbw" eventType="editingDidEnd" id="NmB-rL-r4N"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -160,8 +168,8 @@
                         <outlet property="avatarImageView" destination="yih-wP-Sd7" id="vHo-WI-oci"/>
                         <outlet property="darkSwitch" destination="ImH-LY-WA7" id="pmG-cd-m1J"/>
                         <outlet property="darkmodelLabel" destination="noe-dk-nj2" id="fjF-eq-ezR"/>
-                        <outlet property="stateContentLabel" destination="ciA-qX-5hx" id="AYz-OD-7LD"/>
-                        <outlet property="stateLabel" destination="8k2-Xh-e6s" id="9c3-if-DY4"/>
+                        <outlet property="genderText" destination="2Uh-wu-2Uw" id="pTC-hD-6cx"/>
+                        <outlet property="genderlabel" destination="8k2-Xh-e6s" id="9c3-if-DY4"/>
                         <outlet property="stepper" destination="3JQ-ub-KnU" id="2JY-Ox-aUh"/>
                         <outlet property="textsizeLable" destination="4tR-H3-26R" id="Ta9-Mt-WAP"/>
                         <outlet property="userNameLable" destination="d53-nD-LeT" id="Fsz-eX-iC2"/>
