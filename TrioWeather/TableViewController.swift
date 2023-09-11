@@ -7,10 +7,13 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, ModalViewControllerDelegate{
+
+    
     lazy var weatherModel = WeatherModel.SharedInstance
     lazy var displayMode = TemperatureMode.Fahrenheit
     lazy var lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
+    lazy var cityNames = weatherModel.getCities(numCity:3)
     override func viewDidLoad() {
         super.viewDidLoad()
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateWeather), userInfo: nil, repeats: true)
@@ -34,7 +37,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 1{
-            return weatherModel.getCityCount()}
+            return cityNames.count}
         return 1
     }
     
@@ -45,7 +48,7 @@ class TableViewController: UITableViewController {
         }
         else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-            let weather = weatherModel.getWeathersByIndex(index: indexPath.row)!
+            let weather = weatherModel.getWeatherByCity(city: cityNames[indexPath.row])!
             
             cell.textLabel?.text = weather.city
             if displayMode == TemperatureMode.Celsius{
@@ -84,6 +87,18 @@ class TableViewController: UITableViewController {
             }
             self.tableView.reloadSections([1], with: .automatic)
         }
+    }
+    
+    func addCity(city: String) -> Bool {
+        if cityNames.contains(city){
+            return false
+        }
+        if !weatherModel.hasCity(city: city){
+            return false
+        }
+        cityNames.append(city)
+        tableView.insertRows(at: [IndexPath(row: cityNames.count - 1, section: 1)], with: .automatic)
+        return true
     }
     /*
     // Override to support conditional editing of the table view.
@@ -127,23 +142,19 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        //tableView.index
-        //print(segue.destination)
-        
         if let vc = segue.destination as? CollectionViewController{
             vc.displayMode = self.displayMode
-        }else if let vc = segue.destination as? WeatherDetailsViewController,
+            vc.cityNames = cityNames
+        }else if let vc = segue.destination as? ModalViewController
+        {
+            vc.delegate = self
+        }
+        else if let vc = segue.destination as? WeatherDetailsViewController,
             let cell = sender as? UITableViewCell,
             let city = cell.textLabel?.text!
         {
-            vc.weather = weatherModel.getWeatherByCity(city:city)
+            vc.city = city
         }
-//        if let vc = segue.destination as? ViewController,
-//           let cell = sender as? UITableViewCell
-//           print("")
-////           let name = cell.textLabel?.text{
-////                vc.displayImageName = name
-////            }
     }
 
 

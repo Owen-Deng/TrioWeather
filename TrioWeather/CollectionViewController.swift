@@ -12,6 +12,7 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     lazy var weatherModel = WeatherModel.SharedInstance
     lazy var displayMode = TemperatureMode.Fahrenheit
+    var cityNames:Array<String>?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,12 +45,12 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return weatherModel.getCityCount()
+        return cityNames?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCityCell", for: indexPath) as! CollectionCityCell
-        let weather = weatherModel.getWeathersByIndex(index: indexPath.row)!
+        let weather = weatherModel.getWeatherByCity(city: (cityNames?[indexPath.row])!)!
         cell.CityLabel.text = weather.city
         if displayMode == TemperatureMode.Celsius{
             cell.WeatherLabel?.text = "\(weather.weather!) \(weatherModel.F2C(f: weather.temp_low))/\(weatherModel.F2C(f: weather.temp_high))°C"
