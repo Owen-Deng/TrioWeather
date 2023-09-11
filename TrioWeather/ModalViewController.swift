@@ -10,6 +10,8 @@ import UIKit
 class ModalViewController: UIViewController, UITextFieldDelegate {
     weak var delegate: ModalViewControllerDelegate?
 
+    @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var modalUIView: UIView!
     
@@ -22,19 +24,23 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
         cityField.delegate = self
         cityField.becomeFirstResponder()
         modalUIView.layer.cornerRadius = 15
+        
+        //mainView.frame.size.height = 100
+        
+        
         // Do any additional setup after loading the view.
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         cityField.resignFirstResponder()
-        
+        let cityName = cityField.text?.trimmingCharacters(in: .whitespaces)
         var msg:String?
-        if cityField.text == ""{
+        if cityName == ""{
             msg = "Please enter a city's name."
         }
         else
         {
-            if (delegate?.addCity(city: (cityField?.text)!) ?? false){
+            if (delegate?.addCity(city: cityName!))!{
                 dismiss(animated: true)
                 return true
             }
@@ -51,6 +57,11 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
         }
         
         return false
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        blurView.frame = CGRect(origin: .zero, size: size)
     }
 
     

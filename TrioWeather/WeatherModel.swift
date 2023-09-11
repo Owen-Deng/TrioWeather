@@ -16,7 +16,6 @@ struct Weather {
     var temp_feels_like:Int
     var humidity:Int
     var visibility:Int
-    
 }
 
 //enum DisplayMode{case Fahrenheit, Celsius}

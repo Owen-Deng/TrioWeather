@@ -149,12 +149,12 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
         {
             vc.delegate = self
         }
-        else if let vc = segue.destination as? WeatherDetailsViewController,
-            let cell = sender as? UITableViewCell,
-            let city = cell.textLabel?.text!
-        {
-            vc.city = city
-        }
+//        else if let vc = segue.destination as? WeatherDetailsViewController,
+//            let cell = sender as? UITableViewCell,
+//            let city = cell.textLabel?.text!
+//        {
+//            vc.city = city
+//        }
     }
 
 
