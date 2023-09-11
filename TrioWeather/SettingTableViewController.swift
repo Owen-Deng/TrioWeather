@@ -11,6 +11,20 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    let states = [
+        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+        "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
+        "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+        "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+        "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+        "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+        "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    ]
+
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     
     
@@ -45,13 +59,33 @@ class SettingTableViewController: UITableViewController {
    
     @IBOutlet weak var stepper: UIStepper!
     
+    @IBOutlet weak var darkSwitch: UISwitch!
     
+    
+    
+    // change the fontszie
     @IBAction func stepFontsize(_ sender: Any) {
         print(stepper.value)
-        var stepperV:Int = Int(stepper.value)
+        let stepperV:Int = Int(stepper.value)
         setFontsize(size: stepperV)
         textsizeLable.text="Text Size:" + String(stepperV)
     }
+    
+    
+    //click the switch to darkmodel
+    @IBAction func darkSwitchClick(_ sender: Any) {
+        print(darkSwitch.isOn)
+        if(darkSwitch.isOn){
+            overrideUserInterfaceStyle = .dark
+        }else{
+            overrideUserInterfaceStyle = .light
+        }
+        //save the model here
+    }
+    
+    
+    
+    
     
     func setFontsize(size:Int){
         userNameLable.font=UIFont.systemFont(ofSize: CGFloat(size))
