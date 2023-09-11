@@ -8,6 +8,59 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Modal View Controller-->
+        <scene sceneID="B7H-3S-xhQ">
+            <objects>
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="currentContext" id="AfZ-rn-FVo" customClass="ModalViewController" customModule="TrioWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" id="G3x-N2-W4X">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KlR-j7-cwh">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYj-Zr-Qn6">
+                                    <rect key="frame" x="20" y="200" width="353" height="100"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdL-wY-T6X">
+                                            <rect key="frame" x="20" y="39.666666666666657" width="30.333333333333329" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-3E-UhS">
+                                            <rect key="frame" x="70.333333333333343" y="33" width="262.66666666666663" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="D9e-3E-UhS" secondAttribute="bottom" constant="33" id="9bi-qB-JR7"/>
+                                        <constraint firstItem="BdL-wY-T6X" firstAttribute="leading" secondItem="VYj-Zr-Qn6" secondAttribute="leading" constant="20" id="9fx-Dd-eFJ"/>
+                                        <constraint firstItem="D9e-3E-UhS" firstAttribute="leading" secondItem="BdL-wY-T6X" secondAttribute="trailing" constant="20" id="CIL-zt-4zn"/>
+                                        <constraint firstAttribute="trailing" secondItem="D9e-3E-UhS" secondAttribute="trailing" constant="20" id="NQu-kg-Yra"/>
+                                        <constraint firstItem="D9e-3E-UhS" firstAttribute="top" secondItem="VYj-Zr-Qn6" secondAttribute="top" constant="33" id="nLL-T7-FGP"/>
+                                        <constraint firstItem="BdL-wY-T6X" firstAttribute="centerY" secondItem="VYj-Zr-Qn6" secondAttribute="centerY" id="obo-gL-eF2"/>
+                                        <constraint firstAttribute="height" constant="100" id="yMg-8Z-Stk"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="VYj-Zr-Qn6" secondAttribute="trailing" constant="20" id="4E7-AX-rq0"/>
+                                <constraint firstItem="VYj-Zr-Qn6" firstAttribute="leading" secondItem="KlR-j7-cwh" secondAttribute="leading" constant="20" id="I9Q-22-j4G"/>
+                                <constraint firstItem="VYj-Zr-Qn6" firstAttribute="top" secondItem="KlR-j7-cwh" secondAttribute="top" constant="200" id="Ih1-8A-qXb"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                    <navigationItem key="navigationItem" id="KC5-Yu-qUI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8vY-o1-jo2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768.70229007633588" y="-1146.4788732394368"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="iCA-u7-zDO">
             <objects>
@@ -150,7 +203,13 @@
                             <outlet property="delegate" destination="zqa-XF-rzj" id="oeR-Dn-MOG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pdM-D7-bhY"/>
+                    <navigationItem key="navigationItem" id="pdM-D7-bhY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UF6-mw-aRo">
+                            <connections>
+                                <segue destination="AfZ-rn-FVo" kind="presentation" modalPresentationStyle="overCurrentContext" id="oRt-9q-4oW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="df8-sw-PRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

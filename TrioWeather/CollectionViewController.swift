@@ -11,7 +11,7 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController {
     lazy var weatherModel = WeatherModel.SharedInstance
-    lazy var displayMode = DisplayMode.Fahrenheit
+    lazy var displayMode = TemperatureMode.Fahrenheit
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,14 +49,15 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCityCell", for: indexPath) as! CollectionCityCell
-        let weather = weatherModel.getWeathersByIndex(index: indexPath.row)
+        let weather = weatherModel.getWeathersByIndex(index: indexPath.row)!
         cell.CityLabel.text = weather.city
-        if displayMode == DisplayMode.Celsius{
+        if displayMode == TemperatureMode.Celsius{
             cell.WeatherLabel?.text = "\(weather.weather!) \(weatherModel.F2C(f: weather.temp_low))/\(weatherModel.F2C(f: weather.temp_high))°C"
         }else
         {
             cell.WeatherLabel?.text = "\(weather.weather!) \(weather.temp_low)/\(weather.temp_high)F"
         }
+        
         
         return cell
     }
