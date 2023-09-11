@@ -83,15 +83,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text Size :10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tR-H3-26R">
-                                                    <rect key="frame" x="20" y="11" width="95" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text Size : 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tR-H3-26R">
+                                                    <rect key="frame" x="20" y="11" width="99" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="3JQ-ub-KnU">
-                                                    <rect key="frame" x="279" y="5" width="94" height="32"/>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minimumValue="12" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="3JQ-ub-KnU">
+                                                    <rect key="frame" x="279" y="13" width="94" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="stepFontsize:" destination="wWa-NN-Jbw" eventType="valueChanged" id="z94-TC-XS3"/>
@@ -158,6 +158,7 @@
                         <outlet property="darkmodelLabel" destination="noe-dk-nj2" id="fjF-eq-ezR"/>
                         <outlet property="stateContentLabel" destination="ciA-qX-5hx" id="AYz-OD-7LD"/>
                         <outlet property="stateLabel" destination="8k2-Xh-e6s" id="9c3-if-DY4"/>
+                        <outlet property="stepper" destination="3JQ-ub-KnU" id="2JY-Ox-aUh"/>
                         <outlet property="textsizeLable" destination="4tR-H3-26R" id="Ta9-Mt-WAP"/>
                         <outlet property="userNameLable" destination="d53-nD-LeT" id="Fsz-eX-iC2"/>
                     </connections>

@@ -14,6 +14,7 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     
     
+    //the lables will update the size
     @IBOutlet weak var userNameLable: UILabel!
     
     @IBOutlet weak var textsizeLable: UILabel!
@@ -41,12 +42,24 @@ class SettingTableViewController: UITableViewController {
         
     }
     
+   
+    @IBOutlet weak var stepper: UIStepper!
+    
+    
     @IBAction func stepFontsize(_ sender: Any) {
-        
+        print(stepper.value)
+        var stepperV:Int = Int(stepper.value)
+        setFontsize(size: stepperV)
+        textsizeLable.text="Text Size:" + String(stepperV)
     }
     
-    
     func setFontsize(size:Int){
+        userNameLable.font=UIFont.systemFont(ofSize: CGFloat(size))
+        textsizeLable.font=UIFont.systemFont(ofSize: CGFloat(size))
+        darkmodelLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
+        stateLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
+        stateContentLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
+        //save the size here
         
     }
     
