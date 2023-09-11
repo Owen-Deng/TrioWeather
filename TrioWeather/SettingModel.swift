@@ -23,7 +23,16 @@ class SettingModel{
         return "Texas"
     }
     
+    func getUserName()->String{
+        return "UserName"
+    }
     
+    func saveToUserDefault(key:String , fontSize:Int, darkModel:Bool,stateName:String,userName:String){
+        let userDefault=UserDefaults.standard
+        
+        
+        
+    }
     
     
     

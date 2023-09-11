@@ -14,6 +14,16 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     
     
+    @IBOutlet weak var userNameLable: UILabel!
+    
+    @IBOutlet weak var textsizeLable: UILabel!
+    
+    @IBOutlet weak var darkmodelLabel: UILabel!
+    
+    @IBOutlet weak var stateLabel: UILabel!
+    
+    @IBOutlet weak var stateContentLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title="Setting"
@@ -28,6 +38,15 @@ class SettingTableViewController: UITableViewController {
     }
     
     func setView(){
+        
+    }
+    
+    @IBAction func stepFontsize(_ sender: Any) {
+        
+    }
+    
+    
+    func setFontsize(size:Int){
         
     }
     
@@ -51,6 +70,11 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        //
     }
 
     /*
