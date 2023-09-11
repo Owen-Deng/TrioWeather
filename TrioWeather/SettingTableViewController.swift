@@ -11,26 +11,46 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title="Setting"
+        print("setting loaded")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        setAvatarView(imageView: avatarImageView)
     }
-
+    
+    func setView(){
+        
+    }
+    
+    // this function to reshape the avatar imageview into circle
+    func setAvatarView(imageView:UIImageView){
+        imageView.layer.borderWidth=0.5
+        imageView.layer.masksToBounds=false
+        imageView.layer.cornerRadius=imageView.frame.size.width/2
+        imageView.clipsToBounds=true
+    }
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 4
     }
 
     /*
