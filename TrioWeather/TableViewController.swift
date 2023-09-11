@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     lazy var weatherModel = WeatherModel.SharedInstance
-    lazy var displayMode = DisplayMode.Fahrenheit
+    lazy var displayMode = TemperatureMode.Fahrenheit
     lazy var lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
     @objc func updateWeather(){
         lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
-        self.tableView.reloadSections([3], with: .automatic)
+        self.tableView.reloadSections([1, 4], with: .automatic)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -45,10 +45,10 @@ class TableViewController: UITableViewController {
         }
         else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-            let weather = weatherModel.getWeathersByIndex(index: indexPath.row)
+            let weather = weatherModel.getWeathersByIndex(index: indexPath.row)!
             
             cell.textLabel?.text = weather.city
-            if displayMode == DisplayMode.Celsius{
+            if displayMode == TemperatureMode.Celsius{
                 cell.detailTextLabel?.text = "\(weather.weather!) \(weatherModel.F2C(f: weather.temp_low))/\(weatherModel.F2C(f: weather.temp_high))°C"
             }else
             {
@@ -76,10 +76,11 @@ class TableViewController: UITableViewController {
         if let segCtrl = sender as? UISegmentedControl{
             let val = segCtrl.selectedSegmentIndex
             if val == 0{
-                self.displayMode = DisplayMode.Fahrenheit
+                self.displayMode = TemperatureMode.Fahrenheit
+                
             }else
             {
-                self.displayMode = DisplayMode.Celsius
+                self.displayMode = TemperatureMode.Celsius
             }
             self.tableView.reloadSections([1], with: .automatic)
         }
@@ -128,6 +129,15 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         //tableView.index
         //print(segue.destination)
+        
+        if let vc = segue.destination as? CollectionViewController{
+            vc.displayMode = self.displayMode
+        }else if let vc = segue.destination as? WeatherDetailsViewController,
+            let cell = sender as? UITableViewCell,
+            let city = cell.textLabel?.text!
+        {
+            vc.weather = weatherModel.getWeatherByCity(city:city)
+        }
 //        if let vc = segue.destination as? ViewController,
 //           let cell = sender as? UITableViewCell
 //           print("")
