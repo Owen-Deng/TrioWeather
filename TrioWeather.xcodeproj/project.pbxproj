@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A231D582AAE2C130078A4F3 /* TemperatureMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D572AAE2C130078A4F3 /* TemperatureMode.m */; };
+		5A231D5A2AAE708C0078A4F3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D592AAE708C0078A4F3 /* ModalViewController.swift */; };
 		5AF9B2512AAB76DD00D92D5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2502AAB76DD00D92D5D /* AppDelegate.swift */; };
 		5AF9B2532AAB76DD00D92D5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2522AAB76DD00D92D5D /* SceneDelegate.swift */; };
 		5AF9B2552AAB76DD00D92D5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2542AAB76DD00D92D5D /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		5A231D552AAE2A5B0078A4F3 /* TemperatureMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureMode.h; sourceTree = "<group>"; };
 		5A231D562AAE2C130078A4F3 /* TrioWeather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrioWeather-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A231D572AAE2C130078A4F3 /* TemperatureMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureMode.m; sourceTree = "<group>"; };
+		5A231D592AAE708C0078A4F3 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		5AF9B24D2AAB76DD00D92D5D /* TrioWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrioWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF9B2502AAB76DD00D92D5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AF9B2522AAB76DD00D92D5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				5AF9B26C2AABD67200D92D5D /* CollectionViewController.swift */,
 				5AF9B26E2AABD8A800D92D5D /* CollectionViewCell.swift */,
 				5AF9B26A2AABADA000D92D5D /* WeatherModel.swift */,
+				5A231D592AAE708C0078A4F3 /* ModalViewController.swift */,
 				5A231D552AAE2A5B0078A4F3 /* TemperatureMode.h */,
 				5A231D572AAE2C130078A4F3 /* TemperatureMode.m */,
 				5AF9B2562AAB76DD00D92D5D /* Main.storyboard */,
@@ -169,6 +172,7 @@
 				5A231D582AAE2C130078A4F3 /* TemperatureMode.m in Sources */,
 				5AF9B2512AAB76DD00D92D5D /* AppDelegate.swift in Sources */,
 				5AF9B2532AAB76DD00D92D5D /* SceneDelegate.swift in Sources */,
+				5A231D5A2AAE708C0078A4F3 /* ModalViewController.swift in Sources */,
 				5AF9B2672AAB95E600D92D5D /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

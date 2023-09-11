@@ -45,7 +45,7 @@ class TableViewController: UITableViewController {
         }
         else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-            let weather = weatherModel.getWeathersByIndex(index: indexPath.row)
+            let weather = weatherModel.getWeathersByIndex(index: indexPath.row)!
             
             cell.textLabel?.text = weather.city
             if displayMode == TemperatureMode.Celsius{
@@ -129,6 +129,15 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         //tableView.index
         //print(segue.destination)
+        
+        if let vc = segue.destination as? CollectionViewController{
+            vc.displayMode = self.displayMode
+        }else if let vc = segue.destination as? WeatherDetailsViewController,
+            let cell = sender as? UITableViewCell,
+            let city = cell.textLabel?.text!
+        {
+            vc.weather = weatherModel.getWeatherByCity(city:city)
+        }
 //        if let vc = segue.destination as? ViewController,
 //           let cell = sender as? UITableViewCell
 //           print("")
