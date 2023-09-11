@@ -13,6 +13,7 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
     lazy var weatherModel = WeatherModel.SharedInstance
     lazy var displayMode = TemperatureMode.Fahrenheit
     lazy var lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
+    lazy var cityNames = weatherModel.getCities(numCity:3)
     override func viewDidLoad() {
         super.viewDidLoad()
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateWeather), userInfo: nil, repeats: true)
@@ -36,7 +37,7 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 1{
-            return weatherModel.getCityCount()}
+            return cityNames.count}
         return 1
     }
     
@@ -47,7 +48,7 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
         }
         else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-            let weather = weatherModel.getWeathersByIndex(index: indexPath.row)!
+            let weather = weatherModel.getWeatherByCity(city: cityNames[indexPath.row])!
             
             cell.textLabel?.text = weather.city
             if displayMode == TemperatureMode.Celsius{
@@ -89,7 +90,14 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
     }
     
     func addCity(city: String) -> Bool {
-        _ = weatherModel.getWeatherByCity(city: city)
+        if cityNames.contains(city){
+            return false
+        }
+        if !weatherModel.hasCity(city: city){
+            return false
+        }
+        cityNames.append(city)
+        tableView.insertRows(at: [IndexPath(row: cityNames.count - 1, section: 1)], with: .automatic)
         return true
     }
     /*
@@ -136,6 +144,7 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
         // Pass the selected object to the new view controller.
         if let vc = segue.destination as? CollectionViewController{
             vc.displayMode = self.displayMode
+            vc.cityNames = cityNames
         }else if let vc = segue.destination as? ModalViewController
         {
             vc.delegate = self

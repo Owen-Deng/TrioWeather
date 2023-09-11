@@ -39,26 +39,29 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
                 return true
             }
             else{
-                msg = "City not found! Please try another one."
+                msg = "City not found or alreay existed! Please try another one."
             }
         }
         if msg != nil{
             let alert = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.cityField.becomeFirstResponder()
+            }))
             self.present(alert, animated: true, completion: nil)
         }
+        
         return false
     }
 
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        // Update the layout for the new size (e.g., for landscape or portrait)
-        coordinator.animate(alongsideTransition: { [weak self] _ in
-            // Update constraints or views as needed here
-        }, completion: nil)
-    }
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransition(to: size, with: coordinator)
+//
+//        // Update the layout for the new size (e.g., for landscape or portrait)
+//        coordinator.animate(alongsideTransition: { [weak self] _ in
+//            // Update constraints or views as needed here
+//        }, completion: nil)
+//    }
 
     /*
     // MARK: - Navigation
