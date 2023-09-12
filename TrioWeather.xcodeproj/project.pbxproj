@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A231D582AAE2C130078A4F3 /* TemperatureMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D572AAE2C130078A4F3 /* TemperatureMode.m */; };
+		5A231D5A2AAE708C0078A4F3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D592AAE708C0078A4F3 /* ModalViewController.swift */; };
+		5A231D5C2AAF345B0078A4F3 /* ModalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D5B2AAF345B0078A4F3 /* ModalViewControllerDelegate.swift */; };
+		5A231D5E2AAFA7930078A4F3 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A231D5D2AAFA7930078A4F3 /* database.json */; };
+		5A231D602AAFA9590078A4F3 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D5F2AAFA9590078A4F3 /* ConfigModel.swift */; };
+		5A231D622AAFB5A30078A4F3 /* SegementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A231D612AAFB5A30078A4F3 /* SegementTableViewCell.swift */; };
 		5AF9B2512AAB76DD00D92D5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2502AAB76DD00D92D5D /* AppDelegate.swift */; };
 		5AF9B2532AAB76DD00D92D5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2522AAB76DD00D92D5D /* SceneDelegate.swift */; };
 		5AF9B2552AAB76DD00D92D5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2542AAB76DD00D92D5D /* ViewController.swift */; };
@@ -25,6 +31,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A231D552AAE2A5B0078A4F3 /* TemperatureMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureMode.h; sourceTree = "<group>"; };
+		5A231D562AAE2C130078A4F3 /* TrioWeather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrioWeather-Bridging-Header.h"; sourceTree = "<group>"; };
+		5A231D572AAE2C130078A4F3 /* TemperatureMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureMode.m; sourceTree = "<group>"; };
+		5A231D592AAE708C0078A4F3 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		5A231D5B2AAF345B0078A4F3 /* ModalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewControllerDelegate.swift; sourceTree = "<group>"; };
+		5A231D5D2AAFA7930078A4F3 /* database.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = database.json; sourceTree = "<group>"; };
+		5A231D5F2AAFA9590078A4F3 /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
+		5A231D612AAFB5A30078A4F3 /* SegementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegementTableViewCell.swift; sourceTree = "<group>"; };
 		5AF9B24D2AAB76DD00D92D5D /* TrioWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrioWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF9B2502AAB76DD00D92D5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AF9B2522AAB76DD00D92D5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,18 +92,26 @@
 				5AF9B2522AAB76DD00D92D5D /* SceneDelegate.swift */,
 				5AF9B2542AAB76DD00D92D5D /* ViewController.swift */,
 				5AF9B2662AAB95E600D92D5D /* TableViewController.swift */,
+				5A231D612AAFB5A30078A4F3 /* SegementTableViewCell.swift */,
 				5AF9B26C2AABD67200D92D5D /* CollectionViewController.swift */,
 				5AF9B26E2AABD8A800D92D5D /* CollectionViewCell.swift */,
+				5A231D592AAE708C0078A4F3 /* ModalViewController.swift */,
+				5A231D5B2AAF345B0078A4F3 /* ModalViewControllerDelegate.swift */,
 				5AF9B26A2AABADA000D92D5D /* WeatherModel.swift */,
+				5A231D5F2AAFA9590078A4F3 /* ConfigModel.swift */,
+				5A231D5D2AAFA7930078A4F3 /* database.json */,
+				5A231D552AAE2A5B0078A4F3 /* TemperatureMode.h */,
+				5A231D572AAE2C130078A4F3 /* TemperatureMode.m */,
 				5AF9B2562AAB76DD00D92D5D /* Main.storyboard */,
 				5AF9B2682AAB992900D92D5D /* test.storyboard */,
-				5AF9B2592AAB76E100D92D5D /* Assets.xcassets */,
 				5AF9B25B2AAB76E100D92D5D /* LaunchScreen.storyboard */,
+				5AF9B2592AAB76E100D92D5D /* Assets.xcassets */,
 				5AF9B25E2AAB76E100D92D5D /* Info.plist */,
 				CC6E12372AAE294D001084B9 /* Setting.storyboard */,
 				CCB553B72AAFBD19006CA832 /* AvatarViewController.swift */,
 				CC6E123B2AAE6033001084B9 /* SettingTableViewController.swift */,
 				CCB553B52AAEDE2C006CA832 /* SettingModel.swift */,
+				5A231D562AAE2C130078A4F3 /* TrioWeather-Bridging-Header.h */,
 			);
 			path = TrioWeather;
 			sourceTree = "<group>";
@@ -126,6 +148,7 @@
 				TargetAttributes = {
 					5AF9B24C2AAB76DD00D92D5D = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -152,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A231D5E2AAFA7930078A4F3 /* database.json in Resources */,
 				5AF9B25D2AAB76E100D92D5D /* LaunchScreen.storyboard in Resources */,
 				5AF9B25A2AAB76E100D92D5D /* Assets.xcassets in Resources */,
 				5AF9B2692AAB992900D92D5D /* test.storyboard in Resources */,
@@ -171,11 +195,16 @@
 				CCB553B82AAFBD19006CA832 /* AvatarViewController.swift in Sources */,
 				CC6E123C2AAE6033001084B9 /* SettingTableViewController.swift in Sources */,
 				5AF9B26D2AABD67200D92D5D /* CollectionViewController.swift in Sources */,
+				5A231D622AAFB5A30078A4F3 /* SegementTableViewCell.swift in Sources */,
+				5A231D602AAFA9590078A4F3 /* ConfigModel.swift in Sources */,
 				5AF9B2552AAB76DD00D92D5D /* ViewController.swift in Sources */,
 				5AF9B26B2AABADA000D92D5D /* WeatherModel.swift in Sources */,
 				5AF9B26F2AABD8A800D92D5D /* CollectionViewCell.swift in Sources */,
+				5A231D582AAE2C130078A4F3 /* TemperatureMode.m in Sources */,
+				5A231D5C2AAF345B0078A4F3 /* ModalViewControllerDelegate.swift in Sources */,
 				5AF9B2512AAB76DD00D92D5D /* AppDelegate.swift in Sources */,
 				5AF9B2532AAB76DD00D92D5D /* SceneDelegate.swift in Sources */,
+				5A231D5A2AAE708C0078A4F3 /* ModalViewController.swift in Sources */,
 				5AF9B2672AAB95E600D92D5D /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6UV43Z8K8B;
@@ -339,6 +369,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SMU.TrioWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TrioWeather/TrioWeather-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -349,6 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6UV43Z8K8B;
@@ -367,6 +400,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SMU.TrioWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TrioWeather/TrioWeather-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
