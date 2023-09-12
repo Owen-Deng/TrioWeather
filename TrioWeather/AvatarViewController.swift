@@ -7,22 +7,26 @@
 
 import UIKit
 
-class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate{
+// Protocol to define the contract for the delegate
+protocol AvatarViewControllerDelegate: AnyObject {
+    func dataReceivedFromAvatarViewController(data: UIImage)
+}
 
+class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate{
     
     @IBOutlet weak var avartarImageView: UIImageView!
     
-    
     @IBOutlet weak var avatarScrollView: UIScrollView!
-
+    
+   weak var backDelegate:AvatarViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         avatarScrollView.minimumZoomScale=0.5
         avatarScrollView.maximumZoomScale=5.0//set the range of zoom
-       // avatarScrollView.contentSize=avatarImageview.frame.size
+        // avatarScrollView.contentSize=avatarImageview.frame.size
     }
     
     //load the image from the album into imageview
@@ -34,9 +38,13 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     }
     
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage=info[.originalImage] as? UIImage{
-         loadImage(image: selectedImage)
+            loadImage(image: selectedImage)
+            if (avartarImageView.image != nil){
+                backDelegate?.dataReceivedFromAvatarViewController(data: avartarImageView.image!)
+            }
         }
         dismiss(animated: true)
     }
@@ -45,7 +53,7 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
         dismiss(animated: true)
     }
     
-
+    
     
     
     //load imageview and set the zoom size
@@ -63,12 +71,14 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
             minZoom = 1.0;
         }
         avatarScrollView.minimumZoomScale = minZoom;
-       // avatarScrollView.zoomScale = minZoom;
+        // avatarScrollView.zoomScale = minZoom;
     }
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return avartarImageView
     }
     
+  
+   
     /*
     // MARK: - Navigation
 

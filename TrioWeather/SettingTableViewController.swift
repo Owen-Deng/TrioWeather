@@ -9,7 +9,13 @@
 //this is for the page of setting.
 import UIKit
 
-class SettingTableViewController: UITableViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+class SettingTableViewController: UITableViewController,UIPickerViewDataSource,UIPickerViewDelegate,AvatarViewControllerDelegate {
+    
+    //get the uiimage from the otherVC
+    func dataReceivedFromAvatarViewController(data: UIImage) {
+        avatarImageview.image=data
+    }
+    
     
     //several funcs about the picker
     //return the count of the pickeroptions
@@ -74,7 +80,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title="Setting"
+        
         print("setting loaded")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -98,9 +104,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
         
     }
     
-    func setView(){
-        
-    }
+
     
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var darkSwitch: UISwitch!
@@ -221,14 +225,22 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
     }
     */
 
-    /*
-    // MARK: - Navigation
+    
+ //    MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+ //    In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//         Get the new view controller using segue.destination.
+//         Pass the selected object to the new view controller.
+        if(segue.identifier == "setAvatarSegue"){
+            let avatarVC = segue.destination as! AvatarViewController
+       
+        
+        }
+        
     }
-    */
+    
+    
+    
 
 }

@@ -100,7 +100,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Y6W-OH-hqX" kind="show" id="WcB-bM-y3G"/>
+                                            <segue destination="Y6W-OH-hqX" kind="show" identifier="setAvatarSegue" id="WcB-bM-y3G"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="58" id="4iR-6m-OT9">
