@@ -74,13 +74,14 @@
                     </visualEffectView>
                     <navigationItem key="navigationItem" id="KC5-Yu-qUI"/>
                     <connections>
+                        <outlet property="blurView" destination="G3x-N2-W4X" id="q9a-St-fuS"/>
                         <outlet property="cityField" destination="D9e-3E-UhS" id="A7c-Zb-WEF"/>
                         <outlet property="modalUIView" destination="VYj-Zr-Qn6" id="hMG-Xg-yJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vY-o1-jo2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.70229007633588" y="-1146.4788732394368"/>
+            <point key="canvasLocation" x="725" y="-1335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iCA-u7-zDO">
@@ -107,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SegementCell" rowHeight="32" id="Pz8-mZ-vga">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SegementCell" rowHeight="32" id="Pz8-mZ-vga" customClass="SegementTableViewCell" customModule="TrioWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pz8-mZ-vga" id="iB4-vb-Kfx">
@@ -132,22 +133,25 @@
                                         <constraint firstItem="obQ-VK-CSz" firstAttribute="leading" secondItem="iB4-vb-Kfx" secondAttribute="leading" id="yNi-tn-zw6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="segmentCtrl" destination="obQ-VK-CSz" id="OXe-tY-g2T"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CityCell" textLabel="eAS-I0-1In" detailTextLabel="IPr-EW-c5s" style="IBUITableViewCellStyleValue1" id="jWD-5h-8Rw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CityCell" textLabel="YWD-Jd-58d" detailTextLabel="3Vh-dm-8TR" style="IBUITableViewCellStyleValue1" id="jWD-5h-8Rw">
                                 <rect key="frame" x="0.0" y="82" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jWD-5h-8Rw" id="JXS-bu-YKc">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eAS-I0-1In">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YWD-Jd-58d">
                                             <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IPr-EW-c5s">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Vh-dm-8TR">
                                             <rect key="frame" x="340.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>

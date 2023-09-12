@@ -7,19 +7,25 @@
 
 import UIKit
 
+
 class TableViewController: UITableViewController, ModalViewControllerDelegate{
 
     
     lazy var weatherModel = WeatherModel.SharedInstance
-    lazy var displayMode = TemperatureMode.Fahrenheit
+    lazy var configModel = ConfigModel.SharedInstance
+    lazy var displayMode = configModel.readDisplayMode()
     lazy var lastUpdateTime = Date().formatted(date: .abbreviated, time: .standard)
-    lazy var cityNames = weatherModel.getCities(numCity:3)
+    lazy var cityNames = configModel.readCityNames()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateWeather), userInfo: nil, repeats: true)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        if cityNames.count < 1{
+            cityNames = weatherModel.getCities(numCity:3)
+        }
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -43,8 +49,10 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SegementCell", for: indexPath)
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "SegementCell", for: indexPath) as? SegementTableViewCell{
+                cell.segmentCtrl.selectedSegmentIndex = Int(displayMode.rawValue)
+                return cell
+            }
         }
         else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
@@ -72,6 +80,7 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
             cell.textLabel?.text = "Last Update: \(lastUpdateTime)"
             return cell
         }
+        return UITableViewCell()
     }
     
 
@@ -80,11 +89,11 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
             let val = segCtrl.selectedSegmentIndex
             if val == 0{
                 self.displayMode = TemperatureMode.Fahrenheit
-                
             }else
             {
                 self.displayMode = TemperatureMode.Celsius
             }
+            configModel.saveTempMode(mode: self.displayMode)
             self.tableView.reloadSections([1], with: .automatic)
         }
     }
@@ -97,6 +106,7 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
             return false
         }
         cityNames.append(city)
+        configModel.saveCities(cityNames: cityNames)
         tableView.insertRows(at: [IndexPath(row: cityNames.count - 1, section: 1)], with: .automatic)
         return true
     }
@@ -108,24 +118,28 @@ class TableViewController: UITableViewController, ModalViewControllerDelegate{
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
+            cityNames.remove(at: indexPath.row)
+            configModel.saveCities(cityNames: cityNames)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
+//    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//
+//    }
+    
 
     /*
     // Override to support conditional rearranging of the table view.
