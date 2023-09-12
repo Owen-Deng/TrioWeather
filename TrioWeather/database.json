@@ -1,0 +1,5 @@
+[{"city":"Dallas","humidity":28,"uv_index":"High","temp_feels_like":102,"temp_low":88,"weather":"Sunny","temp_high":100,"visibility":10},
+    {"city":"Seattle","humidity":29,"uv_index":"Low","temp_feels_like":28,"temp_low":32,"weather":"Snow","temp_high":49,"visibility":16},
+    {"city":"New York","humidity":30,"uv_index":"High","temp_feels_like":102,"temp_low":89,"weather":"Sunny","temp_high":100,"visibility":20},
+    {"city":"San Jose","humidity":34,"uv_index":"Low","temp_feels_like":99,"temp_low":99,"weather":"Windy","temp_high":102,"visibility":15}
+]
