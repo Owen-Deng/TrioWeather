@@ -14,7 +14,7 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     
     
     @IBOutlet weak var avatarScrollView: UIScrollView!
-    @IBOutlet weak var imageSlider: UISlider!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,18 +47,26 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     
 
     
-    @IBAction func chanegSliderValue(_ sender: UISlider) {
-        print("slider2:\(sender.value)")
-        avatarScrollView.zoomScale=CGFloat(sender.value)
-    }
     
-    
-    //load imageview
+    //load imageview and set the zoom size
     func loadImage(image:UIImage){
         avartarImageView.image=image
         avartarImageView.frame.size=image.size
         avatarScrollView.contentSize=image.size
         avatarScrollView.delegate=self
+        setZoomScale()
+    }
+    
+    func setZoomScale() {
+        var minZoom = min(self.view.bounds.size.width / avartarImageView!.bounds.size.width, self.view.bounds.size.height / avartarImageView!.bounds.size.height);
+        if (minZoom > 1.0) {
+            minZoom = 1.0;
+        }
+        avatarScrollView.minimumZoomScale = minZoom;
+       // avatarScrollView.zoomScale = minZoom;
+    }
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return avartarImageView
     }
     
     /*
