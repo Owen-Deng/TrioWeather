@@ -15,8 +15,7 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
     lazy var weather:Weather? = weatherModel.getWeatherByCity(city: city!)
     lazy var displayMode = TemperatureMode.Celsius
     lazy var weathers = Array<Weather>()
-//    let weeks = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-    
+
     
     
     @IBOutlet weak var tableView: UITableView!
