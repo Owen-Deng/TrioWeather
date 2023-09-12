@@ -91,6 +91,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
         setAvatarView(imageView: avatarImageview)
         creatPickerView() // init the pickerview
         
+        stepper.value=17
         //monitor the tap in this viewcontroller
        // let tapGasture=UITapGestureRecognizer(target: self, action: #selector(handleTap))
        // self.view.addGestureRecognizer(tapGasture)
