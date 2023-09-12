@@ -24,6 +24,10 @@
 		5AF9B26B2AABADA000D92D5D /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B26A2AABADA000D92D5D /* WeatherModel.swift */; };
 		5AF9B26D2AABD67200D92D5D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B26C2AABD67200D92D5D /* CollectionViewController.swift */; };
 		5AF9B26F2AABD8A800D92D5D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B26E2AABD8A800D92D5D /* CollectionViewCell.swift */; };
+		CC6E12382AAE294D001084B9 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6E12372AAE294D001084B9 /* Setting.storyboard */; };
+		CC6E123C2AAE6033001084B9 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6E123B2AAE6033001084B9 /* SettingTableViewController.swift */; };
+		CCB553B62AAEDE2C006CA832 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB553B52AAEDE2C006CA832 /* SettingModel.swift */; };
+		CCB553B82AAFBD19006CA832 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB553B72AAFBD19006CA832 /* AvatarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		5AF9B26A2AABADA000D92D5D /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		5AF9B26C2AABD67200D92D5D /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		5AF9B26E2AABD8A800D92D5D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CC6E12372AAE294D001084B9 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		CC6E123B2AAE6033001084B9 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		CCB553B52AAEDE2C006CA832 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		CCB553B72AAFBD19006CA832 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,10 @@
 				5AF9B25B2AAB76E100D92D5D /* LaunchScreen.storyboard */,
 				5AF9B2592AAB76E100D92D5D /* Assets.xcassets */,
 				5AF9B25E2AAB76E100D92D5D /* Info.plist */,
+				CC6E12372AAE294D001084B9 /* Setting.storyboard */,
+				CCB553B72AAFBD19006CA832 /* AvatarViewController.swift */,
+				CC6E123B2AAE6033001084B9 /* SettingTableViewController.swift */,
+				CCB553B52AAEDE2C006CA832 /* SettingModel.swift */,
 				5A231D562AAE2C130078A4F3 /* TrioWeather-Bridging-Header.h */,
 			);
 			path = TrioWeather;
@@ -168,6 +180,7 @@
 				5AF9B25A2AAB76E100D92D5D /* Assets.xcassets in Resources */,
 				5AF9B2692AAB992900D92D5D /* test.storyboard in Resources */,
 				5AF9B2582AAB76DD00D92D5D /* Main.storyboard in Resources */,
+				CC6E12382AAE294D001084B9 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB553B62AAEDE2C006CA832 /* SettingModel.swift in Sources */,
+				CCB553B82AAFBD19006CA832 /* AvatarViewController.swift in Sources */,
+				CC6E123C2AAE6033001084B9 /* SettingTableViewController.swift in Sources */,
 				5AF9B26D2AABD67200D92D5D /* CollectionViewController.swift in Sources */,
 				5A231D622AAFB5A30078A4F3 /* SegementTableViewCell.swift in Sources */,
 				5A231D602AAFA9590078A4F3 /* ConfigModel.swift in Sources */,
@@ -337,7 +353,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F69WJ27LN4;
+				DEVELOPMENT_TEAM = 6UV43Z8K8B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrioWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -368,7 +384,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F69WJ27LN4;
+				DEVELOPMENT_TEAM = 6UV43Z8K8B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrioWeather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

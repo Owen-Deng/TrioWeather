@@ -253,7 +253,7 @@
         <!--test_settings-->
         <scene sceneID="dEA-96-Q0E">
             <objects>
-                <viewControllerPlaceholder storyboardName="test" id="f9Y-m0-0JD" userLabel="test_settings" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Setting" referencedIdentifier="SettingVC" id="f9Y-m0-0JD" userLabel="test_settings" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="MYd-G8-fVt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cg2-if-Bic" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
