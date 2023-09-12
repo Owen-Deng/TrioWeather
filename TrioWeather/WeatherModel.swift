@@ -83,4 +83,16 @@ class WeatherModel: NSObject {
         //Fahrenheit to Celsius
         return (f-32)*5/9
     }
+    
+    func getFutureWeathers (city:String) -> Array<Weather>{
+        var weathers = Array<Weather>()
+        let currentWeather = getWeatherByCity(city: city)
+        for _ in 0..<14 {
+            let minTemp = Int.random(in: -5..<5) + currentWeather!.temp_low
+            let maxTemp = Int.random(in: -5..<5) + currentWeather!.temp_high
+            let weather = Weather(temp_low: minTemp, temp_high: maxTemp, temp_feels_like: currentWeather!.temp_feels_like, humidity: currentWeather!.humidity, visibility: currentWeather!.visibility)
+            weathers.append(weather)
+        }
+        return weathers
+    }
 }
