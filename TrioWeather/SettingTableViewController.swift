@@ -28,7 +28,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var selection=genderOptions[row]
+        let selection=genderOptions[row]
         print(selection)
         genderText.text=genderOptions[row]
         //save the gender here
