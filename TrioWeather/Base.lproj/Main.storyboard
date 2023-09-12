@@ -243,7 +243,7 @@
         <!--test_details-->
         <scene sceneID="DH4-E0-f3o">
             <objects>
-                <viewControllerPlaceholder storyboardName="test" id="XQ6-l7-xkz" userLabel="test_details" sceneMemberID="viewController">
+                <viewControllerPlaceholder id="XQ6-l7-xkz" userLabel="test_details" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="oKZ-RW-4pB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDb-ln-7uE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

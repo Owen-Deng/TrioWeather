@@ -20,7 +20,6 @@
 		5AF9B25A2AAB76E100D92D5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AF9B2592AAB76E100D92D5D /* Assets.xcassets */; };
 		5AF9B25D2AAB76E100D92D5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF9B25B2AAB76E100D92D5D /* LaunchScreen.storyboard */; };
 		5AF9B2672AAB95E600D92D5D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B2662AAB95E600D92D5D /* TableViewController.swift */; };
-		5AF9B2692AAB992900D92D5D /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF9B2682AAB992900D92D5D /* test.storyboard */; };
 		5AF9B26B2AABADA000D92D5D /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B26A2AABADA000D92D5D /* WeatherModel.swift */; };
 		5AF9B26D2AABD67200D92D5D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B26C2AABD67200D92D5D /* CollectionViewController.swift */; };
 		5AF9B26F2AABD8A800D92D5D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9B26E2AABD8A800D92D5D /* CollectionViewCell.swift */; };
@@ -48,7 +47,6 @@
 		5AF9B25C2AAB76E100D92D5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AF9B25E2AAB76E100D92D5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AF9B2662AAB95E600D92D5D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		5AF9B2682AAB992900D92D5D /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		5AF9B26A2AABADA000D92D5D /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		5AF9B26C2AABD67200D92D5D /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		5AF9B26E2AABD8A800D92D5D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				5A231D552AAE2A5B0078A4F3 /* TemperatureMode.h */,
 				5A231D572AAE2C130078A4F3 /* TemperatureMode.m */,
 				5AF9B2562AAB76DD00D92D5D /* Main.storyboard */,
-				5AF9B2682AAB992900D92D5D /* test.storyboard */,
 				5AF9B25B2AAB76E100D92D5D /* LaunchScreen.storyboard */,
 				5AF9B2592AAB76E100D92D5D /* Assets.xcassets */,
 				5AF9B25E2AAB76E100D92D5D /* Info.plist */,
@@ -178,7 +175,6 @@
 				5A231D5E2AAFA7930078A4F3 /* database.json in Resources */,
 				5AF9B25D2AAB76E100D92D5D /* LaunchScreen.storyboard in Resources */,
 				5AF9B25A2AAB76E100D92D5D /* Assets.xcassets in Resources */,
-				5AF9B2692AAB992900D92D5D /* test.storyboard in Resources */,
 				5AF9B2582AAB76DD00D92D5D /* Main.storyboard in Resources */,
 				CC6E12382AAE294D001084B9 /* Setting.storyboard in Resources */,
 			);
