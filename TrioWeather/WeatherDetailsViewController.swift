@@ -30,7 +30,7 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     func generateDatesForNextWeek(from date: Date) -> [Date] {
         var calendar = Calendar.current
-            calendar.firstWeekday = 1
+        calendar.firstWeekday = 1
 
         var datesInWeek: [Date] = []
 
@@ -52,9 +52,7 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "onlycell", for: indexPath) as! Mycustomcell
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherDetailCell", for: indexPath) as! WeatherDetailCell
         
         let dateToShow = datesForNextWeek[indexPath.row]
         let dateFormatter = DateFormatter()
@@ -80,9 +78,6 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,7 +87,6 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
         var minTempValue = weather!.temp_low  as Int
         var maxTempValue = weather!.temp_high as Int
 
-        
         var displaySymbol = "F"
         if displayMode == TemperatureMode.Celsius{
             minTempValue = weatherModel.F2C(f: minTempValue)
@@ -101,7 +95,6 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         datesForNextWeek = generateDatesForNextWeek(from: currentDate)
-        
         
         tableView.dataSource = self
         tableView.delegate   = self
