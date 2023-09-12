@@ -234,7 +234,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
 //         Pass the selected object to the new view controller.
         if(segue.identifier == "setAvatarSegue"){
             let avatarVC = segue.destination as! AvatarViewController
-       
+            avatarVC.backDelegate=self
         
         }
         

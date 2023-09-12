@@ -8,6 +8,7 @@
 import UIKit
 
 // Protocol to define the contract for the delegate
+//custom delegate to pass the image back to setting vc
 protocol AvatarViewControllerDelegate: AnyObject {
     func dataReceivedFromAvatarViewController(data: UIImage)
 }
@@ -18,7 +19,9 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     
     @IBOutlet weak var avatarScrollView: UIScrollView!
     
+    //for passing data to setting vc
    weak var backDelegate:AvatarViewControllerDelegate?
+    var imageBack:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +45,8 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage=info[.originalImage] as? UIImage{
             loadImage(image: selectedImage)
-            if (avartarImageView.image != nil){
-                backDelegate?.dataReceivedFromAvatarViewController(data: avartarImageView.image!)
+            if let imageBack=avartarImageView.image{
+                backDelegate?.dataReceivedFromAvatarViewController(data: imageBack)
             }
         }
         dismiss(animated: true)
