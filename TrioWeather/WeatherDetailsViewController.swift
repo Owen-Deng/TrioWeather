@@ -10,9 +10,12 @@ import UIKit
 class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
-    
-    lazy var weather:Weather? = nil
-    let weeks = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    lazy var city:String? = nil
+    let weatherModel = WeatherModel.SharedInstance
+    lazy var weather:Weather? = weatherModel.getWeatherByCity(city: city!)
+    lazy var displayMode = TemperatureMode.Celsius
+    lazy var weathers = Array<Weather>()
+//    let weeks = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     
     
     
@@ -21,25 +24,26 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
    
     var datesForNextWeek: [Date] = []
     
+    @IBOutlet weak var Temperature: UILabel!
+    @IBOutlet weak var CityName: UILabel!
+    @IBOutlet weak var CityWeatherImage: UIImageView!
+    
+    
     func generateDatesForNextWeek(from date: Date) -> [Date] {
-            var calendar = Calendar.current
+        var calendar = Calendar.current
             calendar.firstWeekday = 1
 
-            var datesInWeek: [Date] = []
+        var datesInWeek: [Date] = []
 
-            for dayOffset in 0..<14 {
-                if let date = calendar.date(byAdding: .day, value: dayOffset, to: date) {
+        for dayOffset in 0..<14 {
+            if let date = calendar.date(byAdding: .day, value: dayOffset, to: date) {
                     datesInWeek.append(date)
                 }
             }
 
             return datesInWeek
         }
-    
-    
-    
-    
-    
+
     func numberOfSections(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -56,12 +60,10 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
         let dateToShow = datesForNextWeek[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd EEE"
-//        let formattedDate = dateFormatter.string(from: dateToShow)
         
-        
+        cell.weather = weathers[indexPath.row]
+        cell.displayMode = displayMode
         cell.configure(withDate: dateToShow)
-        
-        
         
         cell.backgroundColor = tableView.backgroundColor
         cell.backgroundColor = tableView.backgroundColor
@@ -82,47 +84,22 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     
     
-    
-    
-    
-    @IBOutlet weak var Temperature: UILabel!
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @IBOutlet weak var CityName: UILabel!
-    
-    
-    
-    
-    
-    
-    @IBOutlet weak var CityWeatherImage: UIImageView!
-    
-    
-    var currentImageIndex = 0
-    
-    func updateImageView(){
-        let imageNames = ["Sunny","Windy","Snow"]
-        
-        if currentImageIndex >= 0 && currentImageIndex < imageNames.count{
-            let imageName = imageNames[currentImageIndex]
-            CityWeatherImage.image = UIImage(named: imageName)
-        }
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let currentDate = Date()
         
+        weathers = weatherModel.getFutureWeathers(city: city!)
+        var minTempValue = weather!.temp_low  as Int
+        var maxTempValue = weather!.temp_high as Int
+
+        
+        var displaySymbol = "F"
+        if displayMode == TemperatureMode.Celsius{
+            minTempValue = weatherModel.F2C(f: minTempValue)
+            maxTempValue = weatherModel.F2C(f: maxTempValue)
+            displaySymbol = "°C"
+        }
         
         datesForNextWeek = generateDatesForNextWeek(from: currentDate)
         
@@ -131,13 +108,9 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate   = self
         self.view.addSubview(tableView)
         tableView.backgroundColor = view.backgroundColor
-        
+        Temperature.text = "\(minTempValue)/\(maxTempValue)\(displaySymbol)"
         CityWeatherImage.image = UIImage(named: (weather?.weather)!)
         CityName.text = weather?.city
-        Temperature.text = "\(weather!.temp_low)/\(weather!.temp_high)F"
-        
-        
-        
         
     }
     

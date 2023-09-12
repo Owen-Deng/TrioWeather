@@ -13,25 +13,11 @@ class Mycustomcell: UITableViewCell {
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var maxTemperatureLabel: UILabel!
+    let weatherModel = WeatherModel.SharedInstance
+    var displayMode:TemperatureMode?
+    lazy var city:String? = nil
+    lazy var weather:Weather? = nil
     
-    func generateDatesForWeek(startingFrom startDate: Date) -> [Date] {
-           var calendar = Calendar.current
-           calendar.firstWeekday = 1
-
-           var datesInWeek: [Date] = []
-
-           if let sunday = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: startDate)) {
-               
-               for dayOffset in 0..<7 {
-                   if let date = calendar.date(byAdding: .day, value: dayOffset, to: sunday) {
-                       datesInWeek.append(date)
-                   }
-               }
-           }
-
-           return datesInWeek
-       }
-
        func configure(withDate date: Date) {
    
                    let dateFormatter = DateFormatter()
@@ -43,12 +29,20 @@ class Mycustomcell: UITableViewCell {
                    let formattedDate = dateFormatter.string(from: date)
                    
                    weekLabel.text = formattedDate
+           
+           var minTemp = weather!.temp_low
+           var maxTemp = weather!.temp_high
+           var displaySymbol = "F"
+           if displayMode == TemperatureMode.Celsius{
+               minTemp = weatherModel.F2C(f: minTemp)
+               maxTemp = weatherModel.F2C(f: maxTemp)
+               displaySymbol = "°C"
+           }
            let weatherIcon = "weather_\(Int.random(in: 0..<3))"
            weatherImage.image = UIImage(named: weatherIcon)
-           let minTemp = "\(Int.random(in: 22..<32))"
-           let maxTemp = "\(Int.random(in: 28..<38))"
-           minTemperatureLabel.text = " \(minTemp)°C"
-           maxTemperatureLabel.text = " \(maxTemp)°C"
+           
+           minTemperatureLabel.text = " \(minTemp)\(displaySymbol)"
+           maxTemperatureLabel.text = " \(maxTemp)\(displaySymbol)"
        }
 
        override func awakeFromNib() {
@@ -61,45 +55,3 @@ class Mycustomcell: UITableViewCell {
            
        }
    }
-
-
-
-
-
-
-    
-    
-//    func configure(withWeekData weeks: String) {
-//
-//        let dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = "MM-dd"
-//                let formattedDate = dateFormatter.string(from: date)
-//
-//                let calendar = Calendar.current
-//                let dayOfWeek = calendar.component(.weekday, from: date)
-//                let dayOfWeekString = calendar.shortWeekdaySymbols[dayOfWeek - 1]
-//
-//                weekLabel.text = "\(formattedDate) \(dayOfWeekString)"
-//            let weatherIcon = "weather_\(Int.random(in: 0..<3))"
-//            weatherImage.image = UIImage(named: weatherIcon)
-//            let minTemp = "\(Int.random(in: 22..<32))"
-//            let maxTemp = "\(Int.random(in: 28..<38))"
-//            minTemperatureLabel.text = " \(minTemp)°"
-//            maxTemperatureLabel.text = " \(maxTemp)°"
-//        }
-//
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-//
-//
-

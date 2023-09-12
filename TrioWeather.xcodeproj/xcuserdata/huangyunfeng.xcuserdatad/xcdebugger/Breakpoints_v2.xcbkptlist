@@ -23,144 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "567B03BC-9934-4FF1-BFA8-D8B02A82DCB5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrioWeather/Mycustomcell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "590AFDA8-5CA8-4B8D-97E0-386E09CE4A24"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrioWeather/Mycustomcell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A39F4460-199A-467A-AD8A-A537803A540C"
+            uuid = "20A133FC-6CCC-4AE3-9480-483C80C8038F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TrioWeather/WeatherDetailsViewController.swift"
+            filePath = "TrioWeather/Mycustomcell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "configure(withDate:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A39F4460-199A-467A-AD8A-A537803A540C - f3851558159a6549"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrioWeather.WeatherDetailsViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
-                  moduleName = "TrioWeather"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangyunfeng/Desktop/TrioWeather/TrioWeather/WeatherDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "177">
-               </Location>
-               <Location
-                  uuid = "A39F4460-199A-467A-AD8A-A537803A540C - 922b7c40d171e31e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrioWeather.WeatherDetailsViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TrioWeather.WeatherDetailsViewController"
-                  moduleName = "TrioWeather"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangyunfeng/Desktop/TrioWeather/TrioWeather/WeatherDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "292">
-               </Location>
-               <Location
-                  uuid = "A39F4460-199A-467A-AD8A-A537803A540C - ec234599bb9c1b1f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrioWeather.WeatherDetailsViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TrioWeather.WeatherDetailsViewController&gt;"
-                  moduleName = "TrioWeather"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangyunfeng/Desktop/TrioWeather/TrioWeather/WeatherDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "249">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C109069-FC8F-415F-8EDB-87C6197EC8D8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrioWeather/WeatherDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "numberOfSections(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9C109069-FC8F-415F-8EDB-87C6197EC8D8 - 578c403816a62210"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrioWeather.WeatherDetailsViewController.numberOfSection(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "TrioWeather"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangyunfeng/Desktop/TrioWeather/TrioWeather/WeatherDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "45">
-               </Location>
-               <Location
-                  uuid = "9C109069-FC8F-415F-8EDB-87C6197EC8D8 - 5c7c48b5a4f9f201"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrioWeather.WeatherDetailsViewController.numberOfSections(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "TrioWeather"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangyunfeng/Desktop/TrioWeather/TrioWeather/WeatherDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "45">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
