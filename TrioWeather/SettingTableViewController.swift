@@ -53,11 +53,15 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
     }
 
     // for the genderoptions
-    let genderOptions=["Male","Female","NotShow"]
+    let genderOptions=["Male","Female", "Non-Binary","Other"]
 
     
     // ui in the viewcontroller
-    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var avatarImageview: UIImageView!
+    
+    @IBOutlet weak var ageLabel: UILabel!
+    
     @IBOutlet weak var userNameLable: UILabel!
     @IBOutlet weak var textsizeLable: UILabel!
     @IBOutlet weak var darkmodelLabel: UILabel!
@@ -78,12 +82,12 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        setAvatarView(imageView: avatarImageView)
+        setAvatarView(imageView: avatarImageview)
         creatPickerView() // init the pickerview
         
         //monitor the tap in this viewcontroller
-        let tapGasture=UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        self.view.addGestureRecognizer(tapGasture)
+       // let tapGasture=UITapGestureRecognizer(target: self, action: #selector(handleTap))
+       // self.view.addGestureRecognizer(tapGasture)
     }
     
     @objc func handleTap(){
@@ -127,6 +131,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
         darkmodelLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
         genderlabel.font=UIFont.systemFont(ofSize: CGFloat(size))
         genderText.font=UIFont.systemFont(ofSize: CGFloat(size))
+        ageLabel.font=UIFont.systemFont(ofSize: CGFloat(size))
         //save the size here
         
     }
@@ -140,6 +145,8 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
     }
     
     
+    //
+    
     
     // MARK: - Table view data source
 
@@ -150,7 +157,7 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 5
     }
     
     // click the table row
@@ -161,7 +168,14 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
             
         }
     }
-
+    
+    
+    @IBAction func changeSlider(_ sender: UISlider) {
+        
+        print("Slider\(Int(sender.value*100))")
+        ageLabel.text="Age:\(Int(sender.value*100))"
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

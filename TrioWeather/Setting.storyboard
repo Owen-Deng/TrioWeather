@@ -9,32 +9,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Avatar View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="TestVC" id="Y6W-OH-hqX" customClass="ViewController" customModule="TrioWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestVC" id="Y6W-OH-hqX" customClass="AvatarViewController" customModule="TrioWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAl-nq-Dpt">
-                                <rect key="frame" x="0.0" y="174" width="393" height="411"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" minimumZoomScale="0.10000000000000001" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-tX-b1O">
+                                <rect key="frame" x="0.0" y="224.66666666666663" width="393" height="393"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGn-hF-u9m">
-                                        <rect key="frame" x="207" y="0.0" width="186" height="324"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYl-QY-yrw">
+                                        <rect key="frame" x="76" y="133" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="AccentColor"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="EJb-jj-pJC"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="AT0-H2-D5y"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="393" id="LXG-oJ-NsI"/>
+                                    <constraint firstAttribute="width" constant="393" id="Rtr-hy-Q23"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="bKX-ML-RNX"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="exS-Ei-Stm"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24C-hV-Thy">
+                                <rect key="frame" x="110" y="685" width="175" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Your Avatar"/>
+                                <connections>
+                                    <action selector="changePhoto:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aB4-7P-6OU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="24C-hV-Thy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="110" id="896-2q-dxR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="24C-hV-Thy" secondAttribute="bottom" constant="122" id="AeE-qo-pun"/>
+                            <constraint firstItem="24C-hV-Thy" firstAttribute="top" secondItem="Hzr-tX-b1O" secondAttribute="bottom" constant="67.333333333333371" id="H2c-DX-YOa"/>
+                            <constraint firstItem="Hzr-tX-b1O" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cqW-Nk-iPr"/>
+                            <constraint firstItem="Hzr-tX-b1O" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="te1-x4-jqm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ane-ah-P9s"/>
+                    <connections>
+                        <outlet property="avartarImageView" destination="fYl-QY-yrw" id="8w2-zA-VVe"/>
+                        <outlet property="avatarScrollView" destination="Hzr-tX-b1O" id="KFM-i9-har"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +86,7 @@
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d53-nD-LeT">
-                                                    <rect key="frame" x="116" y="40" width="86" height="21"/>
+                                                    <rect key="frame" x="116" y="40" width="143" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -73,7 +95,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Y6W-OH-hqX" kind="show" id="RKF-pH-fK2"/>
+                                            <segue destination="Y6W-OH-hqX" kind="show" id="WcB-bM-y3G"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="58" id="4iR-6m-OT9">
@@ -84,7 +106,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text Size : 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tR-H3-26R">
-                                                    <rect key="frame" x="20" y="11" width="99" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="157" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -108,7 +130,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noe-dk-nj2">
-                                                    <rect key="frame" x="20" y="11" width="88" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="150" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -132,7 +154,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-Xh-e6s">
-                                                    <rect key="frame" x="20" y="19" width="57" height="21"/>
+                                                    <rect key="frame" x="20" y="19" width="135" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -156,6 +178,30 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="58" id="Pd7-0A-OtF">
+                                        <rect key="frame" x="0.0" y="322" width="393" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pd7-0A-OtF" id="cbR-Y2-NHM">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3H-dx-WN5">
+                                                    <rect key="frame" x="20" y="19" width="103" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="h5y-Gc-1MA">
+                                                    <rect key="frame" x="129" y="14" width="246" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="changeSlider:" destination="wWa-NN-Jbw" eventType="valueChanged" id="JNy-tp-bT4"/>
+                                                    </connections>
+                                                </slider>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -165,7 +211,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="avatarImageView" destination="yih-wP-Sd7" id="vHo-WI-oci"/>
+                        <outlet property="ageLabel" destination="J3H-dx-WN5" id="tfw-Cv-fDF"/>
+                        <outlet property="avatarImageview" destination="yih-wP-Sd7" id="uPm-xs-sg8"/>
                         <outlet property="darkSwitch" destination="ImH-LY-WA7" id="pmG-cd-m1J"/>
                         <outlet property="darkmodelLabel" destination="noe-dk-nj2" id="fjF-eq-ezR"/>
                         <outlet property="genderText" destination="2Uh-wu-2Uw" id="pTC-hD-6cx"/>
@@ -177,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUT-JL-cEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-769" y="-2"/>
+            <point key="canvasLocation" x="-770.2290076335878" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
