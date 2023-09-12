@@ -11,7 +11,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
     weak var delegate: ModalViewControllerDelegate?
 
     @IBOutlet var blurView: UIVisualEffectView!
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var modalUIView: UIView!
     
@@ -24,10 +23,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
         cityField.delegate = self
         cityField.becomeFirstResponder()
         modalUIView.layer.cornerRadius = 15
-        
-        //mainView.frame.size.height = 100
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -64,15 +59,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate {
         blurView.frame = CGRect(origin: .zero, size: size)
     }
 
-    
-//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        super.viewWillTransition(to: size, with: coordinator)
-//
-//        // Update the layout for the new size (e.g., for landscape or portrait)
-//        coordinator.animate(alongsideTransition: { [weak self] _ in
-//            // Update constraints or views as needed here
-//        }, completion: nil)
-//    }
 
     /*
     // MARK: - Navigation
