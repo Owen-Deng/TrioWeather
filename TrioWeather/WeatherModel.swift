@@ -22,11 +22,6 @@ class WeatherModel: NSObject {
     static var SharedInstance = WeatherModel()
     
     var weathers = [String: Weather]()
-    //    ["Dallas":Weather(city: "Dallas",weather: "Sunny",uv_index: "High", temp_low: 89,temp_high: 100, temp_feels_like: 102, humidity: 28, visibility: 10),
-//        "Seattle":Weather(city: "Seattle",weather: "Snow",uv_index: "Low", temp_low: 32,temp_high: 43, temp_feels_like: 102, humidity: 42, visibility: 17),
-//        "New York":Weather(city: "New York",weather: "Windy",uv_index: "High", temp_low: 70,temp_high: 95, temp_feels_like: 102, humidity: 29, visibility: 20),
-//        "San Jose":Weather(city: "San Jose",weather: "Windy",uv_index: "High", temp_low: 75,temp_high: 95, temp_feels_like: 102, humidity: 29, visibility: 20)]
-    
     override init() {
         if let jsonURL = Bundle.main.url(forResource: "database", withExtension: "json"){
             let decoder = JSONDecoder()
