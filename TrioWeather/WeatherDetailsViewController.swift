@@ -27,7 +27,7 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
 
             var datesInWeek: [Date] = []
 
-            for dayOffset in 0..<7 {
+            for dayOffset in 0..<14 {
                 if let date = calendar.date(byAdding: .day, value: dayOffset, to: date) {
                     datesInWeek.append(date)
                 }
@@ -45,7 +45,7 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weeks.count
+        return 14
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +56,7 @@ class WeatherDetailsViewController: UIViewController, UITableViewDelegate, UITab
         let dateToShow = datesForNextWeek[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd EEE"
-        let formattedDate = dateFormatter.string(from: dateToShow)
+//        let formattedDate = dateFormatter.string(from: dateToShow)
         
         
         cell.configure(withDate: dateToShow)
