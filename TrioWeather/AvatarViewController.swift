@@ -19,6 +19,8 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
     
     @IBOutlet weak var avatarScrollView: UIScrollView!
     
+    var imageFromSetting:UIImage?
+    
     //for passing data to setting vc
    weak var backDelegate:AvatarViewControllerDelegate?
     var imageBack:UIImage?
@@ -30,16 +32,29 @@ class AvatarViewController: UIViewController ,UIImagePickerControllerDelegate,UI
         avatarScrollView.minimumZoomScale=0.5
         avatarScrollView.maximumZoomScale=5.0//set the range of zoom
         // avatarScrollView.contentSize=avatarImageview.frame.size
+        
+        
+        // add right top button
+        let button=UIButton(type: .system)
+        button.setTitle("Change", for: .normal)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        let barButtonItem = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem=barButtonItem
+        
+        if imageFromSetting != nil {
+            self.avartarImageView.image=imageFromSetting
+        }
     }
     
-    //load the image from the album into imageview
-    @IBAction func changePhoto(_ sender: Any) {
+    @objc func buttonTapped(){
+        print("Change button tapped")
         let imagePicker=UIImagePickerController();
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate=self
         present(imagePicker, animated: true, completion: nil)
     }
     
+
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -41,37 +41,13 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="bKX-ML-RNX"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="exS-Ei-Stm"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24C-hV-Thy">
-                                <rect key="frame" x="109.33333333333333" y="655.66666666666663" width="174.33333333333337" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change Your Avatar"/>
-                                <connections>
-                                    <action selector="changePhoto:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aB4-7P-6OU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="24C-hV-Thy" secondAttribute="trailing" constant="40" id="04C-NI-EtE"/>
-                            <constraint firstItem="24C-hV-Thy" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="EQP-ca-YSK"/>
-                            <constraint firstItem="24C-hV-Thy" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="MpW-ee-Zds"/>
                             <constraint firstItem="Hzr-tX-b1O" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cqW-Nk-iPr"/>
-                            <constraint firstItem="24C-hV-Thy" firstAttribute="top" secondItem="Hzr-tX-b1O" secondAttribute="bottom" constant="38" id="scx-Mt-a2h"/>
                             <constraint firstItem="Hzr-tX-b1O" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="te1-x4-jqm"/>
                         </constraints>
-                        <variation key="heightClass=compact-widthClass=regular">
-                            <mask key="constraints">
-                                <exclude reference="MpW-ee-Zds"/>
-                                <exclude reference="scx-Mt-a2h"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <exclude reference="04C-NI-EtE"/>
-                                <exclude reference="EQP-ca-YSK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Ane-ah-P9s"/>
                     <connections>
