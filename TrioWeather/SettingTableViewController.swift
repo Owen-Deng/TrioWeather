@@ -11,6 +11,10 @@ import UIKit
 
 class SettingTableViewController: UITableViewController,UIPickerViewDataSource,UIPickerViewDelegate,AvatarViewControllerDelegate {
     
+    
+  
+    
+    
     //get the uiimage from the otherVC
     func dataReceivedFromAvatarViewController(data: UIImage) {
         avatarImageview.image=data
@@ -95,7 +99,13 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
         //monitor the tap in this viewcontroller
        // let tapGasture=UITapGestureRecognizer(target: self, action: #selector(handleTap))
        // self.view.addGestureRecognizer(tapGasture)
+        
+        
+        
+     
     }
+    
+   
     
     @objc func handleTap(){
         if(genderText.isEditing){
@@ -236,6 +246,9 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
         if(segue.identifier == "setAvatarSegue"){
             let avatarVC = segue.destination as! AvatarViewController
             avatarVC.backDelegate=self
+            if avatarImageview.image != nil{
+                avatarVC.imageFromSetting = self.avatarImageview.image
+            }
         
         }
         
