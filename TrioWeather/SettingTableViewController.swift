@@ -101,7 +101,11 @@ class SettingTableViewController: UITableViewController,UIPickerViewDataSource,U
        // self.view.addGestureRecognizer(tapGasture)
         
         
-        
+        if overrideUserInterfaceStyle == .dark{
+            darkSwitch.isOn=true
+        }else{
+            darkSwitch.isOn=false
+        }
      
     }
     
